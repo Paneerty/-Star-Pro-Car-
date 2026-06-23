@@ -1,10 +1,19 @@
-function sendWhatsApp() {
-  const message =
-    "Nouvelle réservation GS 4C\n" +
-    "Nom:\nTéléphone:\nService:\nDate:\nDétails:";
+// LIGHTBOX SIMPLE
+const images = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
 
-  window.open(
-    "https://wa.me/21655138035?text=" + encodeURIComponent(message),
-    "_blank"
-  );
+images.forEach(img=>{
+  img.addEventListener("click",()=>{
+    lightbox.style.display="flex";
+    lightboxImg.src=img.src;
+  });
+});
+
+function closeLightbox(){
+  lightbox.style.display="none";
 }
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape") closeLightbox();
+});
